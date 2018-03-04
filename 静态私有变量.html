@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        (function() {
+            var name = '';
+            // 创建一个全局变量，外面可以调用
+            Person = function(value) {
+                name = value;
+            };
+            // 在原型上添加方法，返回name
+            Person.prototype.getName = function() {
+                return name;
+            };
+            // 在设置name方法时把value赋予name
+            Person.prototype.setName = function(value) {
+                name = value;
+            };
+        })();
+        var person1 = new Person('Nicholas');
+        alert(person1.getName());
+        person1.setName('Greg');
+        alert(person1.getName());
+    </script>
+</body>
+
+</html>
